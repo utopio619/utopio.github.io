@@ -52,20 +52,22 @@
       <!-- 右侧：联系和反馈（完全位于白色区域内） -->
       <div class="profile-right">
         <div id="contact" class="mini-card">
-          <h3 class="mini-title">📮 联系方式</h3>
+          <h3 class="mini-title">📮联系方式 Contact</h3>
           <a class="contact-item" href="mailto:1990744176@qq.com">1990744176@qq.com</a>
           <a class="contact-item" href="https://github.com/utopio619" target="_blank" rel="noopener">github.com/utopio619</a>
         </div>
 
-        <div id="feedback" class="mini-card">
-          <h3 class="mini-title">✉️ 反馈</h3>
-          <form action="这里填第三方服务给你的表单提交地址" method="POST">
-            <input type="text" name="name" placeholder="请留下你的名字…">
-            <textarea name="msg" placeholder="请写下你想说的话…"></textarea>
-            <button type="submit">提交反馈</button>
-          </form>
-        </div>
-      </div>
+    <div id="feedback" class="mini-card">
+      <h3 class="mini-title">✉️反馈 Feedback</h3>
+      <form action="https://api.web3forms.com/submit" method="POST">
+        <!-- 这一行是密钥，value填你Web3Forms拿到的access_key -->
+        <input type="hidden" name="access_key" value="d8b40a50-a52d-4c0c-a691-37d051c98a36">
+        <input type="text" name="name" placeholder="请留下你的名字">
+        <textarea name="message" placeholder="请写下你想说的话..."></textarea>
+        <button type="submit">提交反馈</button>
+      </form>
+    </div>
+  </div>
 
     </div>
 
@@ -81,7 +83,7 @@
           <div class="masonry-col">
             <!-- 模块 1：关于我 -->
             <div class="masonry-item">
-              <h2 class="masonry-title">🍻 关于我</h2>
+              <h2 class="masonry-title">🍻关于我 About</h2>
               <div class="about-card">
                 <p>你好，我是io，一名来自深圳的本科生。</p>
                 <p>我喜欢玩游戏和阅读，偶尔摸鱼画画但技术力不高。</p>
@@ -93,7 +95,7 @@
 
             <!-- 模块 3：技能（现在它会紧紧贴在“关于我”下方） -->
             <div class="masonry-item" id="skills">
-              <h2 class="masonry-title">🎈 喜好</h2>
+              <h2 class="masonry-title">🎈喜好 Fandom</h2>
               <div class="about-card">
                 <p>🎮游戏：塞尔达传说 / Minecraft / Deemo / 重返未来：1999 / 星露谷 / 心跳文学部 / 苏丹的游戏 / 主播女孩重度依赖</p>
                 <p>📓书籍：红楼梦 / 哈利·波特 / 1984 / 蛇结 / 橘子不是唯一的水果</p>
@@ -108,7 +110,7 @@
           <div class="masonry-col">
             <!-- 模块 2：项目 -->
             <div class="masonry-item" id="projects">
-              <h2 class="masonry-title">📌 项目</h2>
+              <h2 class="masonry-title">📌项目 Projects</h2>
               <article class="project-card">
                 <h3>个人主页</h3>
                 <p>由 Trae agent 根据我提供的信息制作的个人主页。</p>
@@ -130,7 +132,7 @@
     <section id="gallery" class="section section-alt">
       <div class="container">
         <!-- 改成这样 -->
-        <h2 class="gallery-title">💭 画廊</h2>
+        <h2 class="gallery-title">💭画廊 Gallery</h2>
 
         <div class="gallery-intro">
           <p>这里展示了一些我的原创角色（oc）、同人图和游戏截图。</p>
@@ -149,6 +151,14 @@
       </div>
     </section>
   </main>
+
+  <form action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="d8b40a50-a52d-4c0c-a691-37d051c98a36">
+  <input type="text" name="name" required>
+  <input type="email" name="email" required>
+  <textarea name="message" required></textarea>
+  <button type="submit">Submit</button>
+</form>
 
   <!-- 页脚 -->
   <footer class="footer">
