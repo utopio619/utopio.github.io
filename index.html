@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>我的个人主页</title>
+  <title>Personal Homepage - UTOPIO🌌</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,82 +11,127 @@
   <!-- 顶部导航 -->
   <nav class="navbar">
     <div class="container nav-inner">
-      <a href="#hero" class="logo">我的主页</a>
+      <a href="#hero" class="logo">Personal Homepage - UTOPIO</a>
       <ul class="nav-links">
-        <li><a href="#about">关于我</a></li>
-        <li><a href="#projects">项目</a></li>
-        <li><a href="#contact">联系</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#feedback">Feedback</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#gallery">Gallery</a></li>
       </ul>
     </div>
   </nav>
 
   <!-- 首屏介绍 -->
   <header id="hero" class="hero">
-    
-    <!-- 背景图 -->
-    <img class="hero-bg-img" src="background.png" alt="背景" />
 
-    <!-- 文字内容区（重新包裹好） -->
-    <div class="hero-text">
-      <img
-        class="avatar"
-        src="img.png"
-        alt="头像"
-      />
-      <h1 class="greeting">你好，我是<span class="accent">io</span></h1>
-      <p class="subtitle">天津大学 · 智能医学工程 · 本科在读</p>
-      <p class="intro"><em>世界是我的牡蛎，我将以利剑开启。</em></p>
+    <!-- 背景图 + 居中欢迎词 -->
+    <div class="hero-bg">
+      <img class="hero-bg-img" src="background.png" alt="背景" />
+      <div class="hero-welcome">
+        <h1 class="greeting">
+        My life is a tender <span class="accent">delirium.</span>
+        <span style="display: block; margin-top: 8px;">The <span class="accent">sea</span> in my eye,</span>
+        <span style="display: block; margin-top: 8px;">and I do not wish to turn <span class="accent">blue</span>.</span>
+        ————Arthur Rimbaud
+        </h1>
+      </div>
     </div>
+
+    <!-- 头像 + 简介（左） / 联系 + 反馈（右） -->
+    <div class="hero-profile">
+
+      <!-- 左侧：头像和自我介绍 -->
+      <div class="profile-left">
+        <img class="avatar" src="img.png" alt="头像" />
+        <h2 class="name">io</h2>
+        <p class="subtitle">TJU&PolyU · BME · UNDERGRADUATE</p>
+        <p class="intro"><em>Why, then the world's my oyster,Which I with sword will open.</em></p>
+      </div>
+
+      <!-- 右侧：联系和反馈（完全位于白色区域内） -->
+      <div class="profile-right">
+        <div id="contact" class="mini-card">
+          <h3 class="mini-title">📮 Contact</h3>
+          <a class="contact-item" href="mailto:1990744176@qq.com">1990744176@qq.com</a>
+          <a class="contact-item" href="https://github.com/utopio619" target="_blank" rel="noopener">github.com/utopio619</a>
+        </div>
+
+        <div id="feedback" class="mini-card">
+          <h3 class="mini-title">✉️ Feedback</h3>
+          <form action="这里填第三方服务给你的表单提交地址" method="POST">
+            <input type="text" name="name" placeholder="Name please...">
+            <textarea name="msg" placeholder="Message please..."></textarea>
+            <button type="submit">Submit Feedback</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
   </header>
 
   <main>
-    <!-- 关于我 -->
+    <!-- 瀑布流区域：关于我 + 项目 + 新模块 -->
     <section id="about" class="section section-alt">
       <div class="container">
-        <h2>🍻关于我 About</h2>
-        <div class="about-card">
-          <p>我是一名目前智能医学工程专业在读的本科生。</p>
-          <p>我喜欢游戏、漫画和阅读，努力学习计算机中。欢迎通过页面底部的联系方式与我交流！</p>
+        <div class="masonry">
+
+          <!-- 左侧列：关于我 + 技能 -->
+          <div class="masonry-col">
+            <!-- 模块 1：关于我 -->
+            <div class="masonry-item">
+              <h2 class="masonry-title">🍻 About</h2>
+              <div class="about-card">
+                <p>Hi,I'm io,an undergraduate student from Shenzhen.</p>
+                <p>I like games,drawing and reading.</p>
+                <p>Contact me if you are interested!</p>
+              </div>
+            </div>
+
+            <!-- 模块 3：技能（现在它会紧紧贴在“关于我”下方） -->
+            <div class="masonry-item" id="skills">
+              <h2 class="masonry-title">🛠️ Skills</h2>
+              <div class="about-card">
+                <p>HTML / CSS / JavaScript（I'm learning it）</p>
+                <p>Python / Medical Engineering Knowledge</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 右侧列：项目 -->
+          <div class="masonry-col">
+            <!-- 模块 2：项目 -->
+            <div class="masonry-item" id="projects">
+              <h2 class="masonry-title">📌 Project</h2>
+              <article class="project-card">
+                <h3>Personal Homepage</h3>
+                <p>Personal homepage made by Trae agent with my information listed below.</p>
+                <span class="project-tag">HTML · CSS</span>
+              </article>
+              <article class="project-card">
+                <h3>Desktop Pet</h3>
+                <p>A exe made by Python which can be dragged.Useless but lovely.</p>
+                <span class="project-tag">Python</span>
+              </article>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- 项目 -->
-    <section id="projects" class="section section-alt">
-      <div class="container">
-        <h2>📌项目 Project</h2>
-        <div class="project-grid">
-          <article class="project-card">
-            <h3>个人主页</h3>
-            <p>使用Trae agent制作的个人静态主页，展示个人信息与作品。</p>
-            <span class="project-tag">HTML · CSS</span>
-          </article>
-          <article class="project-card">
-            <h3>桌面宠物</h3>
-            <p>用 Python 编写的小工具，可以拖动。放在那挺好看的。</p>
-            <span class="project-tag">Python</span>
-          </article>
-          <article class="project-card">
-            <h3>待开发</h3>
-            <p>待开发</p>
-            <span class="project-tag">N/A</span>
-          </article>
-        </div>
-      </div>
-    </section>
-
-        <!-- 画廊 -->
+    <!-- 画廊（保留左右滑动） -->
     <section id="gallery" class="section section-alt">
       <div class="container">
-        <h2>💭画廊 Gallery</h2>
-        
-        <!-- 新增：画廊说明方框 -->
+        <!-- 改成这样 -->
+        <h2 class="gallery-title">💭 Gallery</h2>
+
         <div class="gallery-intro">
-          <p>这里是我平时的一些涂鸦作品和游戏截图的展览。</p>
-          <p>画画和玩游戏是我放松的方式，也是我灵感的来源。欢迎慢慢欣赏！</p>
+          <p>I display some of my original characters,fanarts and game screenshots here.</p>
+          <p>Contact me if we are fellow enthusiasts!</p>
         </div>
 
-        <!-- 横向滚动画廊（纯CSS，无切换按钮） -->
         <div class="gallery-scroll">
           <div class="gallery-item"><img src="art1.jpeg" alt="板绘作品 1"></div>
           <div class="gallery-item"><img src="art2.png" alt="板绘作品 2"></div>
@@ -94,44 +139,24 @@
           <div class="gallery-item"><img src="art4.png" alt="板绘作品 3"></div>
           <div class="gallery-item"><img src="cg1.png" alt="cg1"></div>
           <div class="gallery-item"><img src="cg2.png" alt="cg2"></div>
-
-          <!-- 想加多少张，就继续加这行 -->
         </div>
 
-      </div>
-    </section>
-
-    <!-- 联系方式 -->
-    <section id="contact" class="section section-alt">
-      <div class="container">
-        <h2>☎️联系 Cotact</h2>
-        <div class="contact-list">
-          <a class="contact-item" href="mailto:1990744176@qq.com">📮 邮箱：1990744176@qq.com</a>
-          <a class="contact-item" href="https://github.com/utopio619" target="_blank" rel="noopener"> 💻GitHub：github.com/utopio619</a>
-        </div>
       </div>
     </section>
   </main>
 
-
-<form action="这里填第三方服务给你的表单提交地址" method="POST">
-  <input type="text" name="name" placeholder="你的名字">
-  <textarea name="msg" placeholder="写下你的意见"></textarea>
-  <button type="submit">提交反馈</button>
-</form>
-
   <!-- 页脚 -->
   <footer class="footer">
-    <p>© 2026 io · 个人主页作业</p>
+    <p>© 2026 io · Personal Homepage Assignment</p>
   </footer>
 
-  <!-- 音频播放器 -->
+  <!-- 音频播放器（保持不变） -->
   <div class="audio-player">
     <audio id="bgm-player" controls>
       <source src="" type="audio/mpeg">
       您的浏览器不支持音频播放。
     </audio>
-    <label for="audio-upload" class="audio-upload-btn">上传音频</label>
+    <label for="audio-upload" class="audio-upload-btn">Upload Audio File</label>
     <input type="file" id="audio-upload" accept="audio/*" style="display: none;">
   </div>
 
