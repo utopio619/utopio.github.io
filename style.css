@@ -2,8 +2,8 @@
 :root {
   --primary: #3b82f6;
   --primary-dark: #2563eb;
-  --text: #1f2937; 
-  --text-light: #4b5563; 
+  --text: #1f2937;
+  --text-light: #4b5563;
   --bg: #ffffff;
   --bg-alt: #f3f6fb;
   --radius: 12px;
@@ -13,8 +13,8 @@
 html { scroll-behavior: smooth; }
 body {
   font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
-  color: #333333; 
-  background-color: #ffffff; 
+  color: #333333;
+  background-color: #ffffff;
   line-height: 1.7;
 }
 
@@ -26,7 +26,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: #ffffff; 
+  background: #ffffff;
   border-bottom: 1px solid #e5e7eb;
 }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; }
@@ -35,120 +35,254 @@ body {
 .nav-links a { color: #4b5563; text-decoration: none; font-size: 15px; transition: color 0.2s; }
 .nav-links a:hover { color: var(--primary); }
 
-/* ===== 首屏（全屏背景图 + 纯文字） ===== */
+/* ===== 首屏 ===== */
 .hero {
   position: relative;
-  min-height: 85vh;
+  background-color: #ffffff;
+  padding-bottom: 60px;
+}
+
+/* 背景图区域（放居中欢迎词） */
+.hero-bg {
+  position: relative;
+  width: 100%;
+  height: 55vh;
+  min-height: 380px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 80px 20px 100px;
-  background-color: #f3f6fb; /* 图片加载失败时的灰色底 */
   overflow: hidden;
+  background-color: #f3f6fb;
 }
 
-/* 背景图：绝对定位，垫在最底下 */
 .hero-bg-img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* 充满屏幕不变形 */
-  z-index: 0;        /* 核心：设为 0，在文字下面 */
+  object-fit: cover;
+  z-index: 1;
 }
 
-/* 为了让你白色的文字在图片上能看清，加一层淡淡的深色渐变遮罩 */
-/* （如果以后你想用深色字，可以把这里的 rgba 改成白色） */
-.hero::before {
+.hero-bg::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1));
-  z-index: 1; /* 盖在图片上，在文字下 */
+  z-index: 2;
 }
 
-/* 文字内容区：浮在渐变层上面 */
-.hero-text {
+/* 替换掉原来的 .hero-welcome */
+.hero-welcome {
   position: relative;
-  z-index: 2;        /* 核心：设为 2，绝对盖住图片和遮罩 */
+  z-index: 3;
   text-align: center;
-  color: #ffffff;    /* 文字设为白色 */
-  max-width: 600px;
+  color: #ffffff;
+  padding: 0 20px;
+  max-width: 600px; /* 限制宽度，超过就会自动换行 */
+  margin: 0 auto;   /* 居中 */
 }
 
-/* 头像 */
+.greeting {
+  font-size: 36px;
+  color: #ffffff;
+  margin-bottom: 0;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* 头像 + 简介 + 右侧微板块 */
+.hero-profile {
+  position: relative;
+  z-index: 3;
+  max-width: 960px;
+  margin: 0 auto; /* 关键：margin-top 设为 0，整体落入白色区域 */
+  padding: 40px 20px 0; /* 给上方头像留出空间 */
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.profile-left { flex: 1; min-width: 0; }
+
+.profile-right {
+  flex: 0 0 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 0; /* 确保右侧卡片完全在白色区域内 */
+}
+
 .avatar {
   width: 110px;
   height: 110px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-  margin-bottom: 20px;
+  border: 4px solid #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  margin-bottom: 12px;
+  display: block;
+  margin-top: -75px; /* 关键：只让头像上移，一半压在背景图上 */
+  position: relative;
+  z-index: 4;
 }
 
-/* 文字（加一点阴影，保证在亮图上也清晰） */
-.greeting {
-  font-size: 32px;
-  color: #ffffff;
-  margin-bottom: 10px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+/* 找到这个类并修改 */
+.name { 
+  font-size: 38px; /* 原来是22px，现在改大了 */
+  font-weight: 700; 
+  color: #111827; 
+  margin-bottom: 4px; 
 }
 
 .subtitle {
-  color: rgba(255, 255, 255, 0.95);
-  font-size: 17px;
-  margin-bottom: 6px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+   color: #4b5563; 
+   font-size: 15px; 
+   margin-bottom: 6px; 
 }
 
-.intro {
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 0;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+.intro { 
+  color: #6b7280; 
+  font-size: 14px; 
+  margin-bottom: 0; 
 }
 
-/* ===== 白色过渡区（放按钮） ===== */
-.white-transition {
-  background-color: #ffffff;
-  text-align: center;
-  padding: 40px 0 20px; /* 给上方图片留白，平滑过渡 */
+/* ===== 右侧微板块（联系 + 反馈） ===== */
+.mini-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  padding: 14px 16px;
 }
 
-.btn {
-  display: inline-block;
-  background: #111827;
-  color: #ffffff;
-  padding: 12px 32px;
-  border-radius: 4px; 
-  text-decoration: none;
-  font-size: 15px;
+.mini-title {
+  font-size: 14px;
+  color: #111827;
+  margin-bottom: 10px;
   font-weight: 600;
-  transition: all 0.2s;
 }
-.btn:hover { background: var(--primary); }
+
+.mini-card .contact-item {
+  display: block;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 4px 0;
+  min-width: 0;
+  text-align: left;
+  font-size: 13px;
+  color: var(--text-light);
+  text-decoration: none;
+  border-radius: 0;
+  word-break: break-all;
+  transition: color 0.2s;
+}
+.mini-card .contact-item:hover {
+  color: var(--primary);
+  border: none;
+  box-shadow: none;
+}
+
+.mini-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mini-card form input,
+.mini-card form textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 13px;
+  color: #333;
+  outline: none;
+  background: #ffffff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.mini-card form input:focus,
+.mini-card form textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+.mini-card form textarea {
+  min-height: 60px;
+  resize: vertical;
+}
+.mini-card form button {
+  background: var(--primary);
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.mini-card form button:hover {
+  background: var(--primary-dark);
+}
 
 /* ===== 白色内容区 ===== */
 main { background-color: #ffffff; position: relative; z-index: 10; }
 .section { padding: 60px 0; }
 .section-alt { background: transparent; }
-.section h2 { font-size: 26px; margin-bottom: 24px; text-align: center; color: #111111; }
 
-/* ===== 关于我 ===== */
+/* ===== 模块标题：全部左对齐 ===== */
+.section h2 {
+  font-size: 26px;
+  margin-bottom: 24px;
+  text-align: left; /* 关键：改为左对齐 */
+  color: #111111;
+}
+
+/* ===== 瀑布流（关于 + 项目 + 技能） ===== */
+.masonry {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 左右等宽两列 */
+  gap: 30px;                      /* 列与列之间的间距 */
+  align-items: start;             /* 顶部对齐 */
+  width: 100%;
+}
+
+/* 新增：每一列的容器 */
+.masonry-col {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;                      /* 这一列内，上下模块的间距 */
+}
+
+.masonry-item {
+  width: 100%;
+}
+
+.masonry-title {
+  text-align: left;
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: #111111;
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 8px;
+}
+
+/* ===== 关于我卡片 ===== */
 .about-card {
   background: #ffffff;
   border: 1px solid #e5e7eb;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
   border-radius: var(--radius);
   padding: 28px 32px;
-  max-width: 720px;
-  margin: 0 auto;
+  width: 100%;
 }
 .about-card p + p { margin-top: 12px; }
 
-/* ===== 项目 ===== */
-.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+/* ===== 项目卡片 ===== */
 .project-card {
   background: #ffffff;
   border: 1px solid #e5e7eb;
@@ -156,7 +290,9 @@ main { background-color: #ffffff; position: relative; z-index: 10; }
   border-radius: var(--radius);
   padding: 24px;
   transition: transform 0.2s, box-shadow 0.2s;
+  margin-bottom: 20px;
 }
+.project-card:last-child { margin-bottom: 0; }
 .project-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); }
 .project-card h3 { font-size: 18px; margin-bottom: 8px; color: #111827; }
 .project-card p { color: var(--text-light); font-size: 14px; margin-bottom: 14px; }
@@ -165,105 +301,61 @@ main { background-color: #ffffff; position: relative; z-index: 10; }
   background: #eff6ff; padding: 3px 10px; border-radius: 999px;
 }
 
-/* ===== 画廊 ===== */
-.gallery-grid {
-  display: grid;
-  /* 和项目模块相同的自适应网格，最小宽度260px */
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-}
-/* 画廊说明方框 */
+/* ===== 画廊（保留横向滚动） ===== */
 .gallery-intro {
-  /* 保持与 about-card 一致的半透明、边框和圆角 */
   background: rgba(255, 255, 255, 0.22);
   border: 1px solid #e5e7eb;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
   border-radius: var(--radius);
-  padding: 20px 24px;         /* 内边距稍微比关于我小一点，显得更精致 */
-  max-width: 720px;           /* 最大宽度与关于我一致 */
-  margin: 0 auto 24px auto;   /* 关键：居中对齐，并和下方照片留出 24px 间距 */
-  font-size: 15px;            /* 字号稍微调小一点点 */
+  padding: 20px 24px;
+  max-width: 720px;
+  margin: 0 auto 24px auto;
+  font-size: 15px;
 }
-
-/* 若说明文字有多段，保持段落间距 */
 .gallery-intro p + p { margin-top: 8px; }
 
-/* 横向滚动容器 */
 .gallery-scroll {
   display: flex;
-  gap: 16px;                      /* 图片之间的间距 */
-  overflow-x: auto;               /* 允许横向滚动 */
-  padding-bottom: 16px;           /* 给底部滚动条多留一点空间 */
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 16px;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   max-width: 720px;
   margin: 0 auto;
-  
-  /* 新增：让滚动条在 Firefox 中也生效 */
-  scrollbar-width: thin; 
+  scrollbar-width: thin;
   scrollbar-color: var(--primary) rgba(255, 255, 255, 0.2);
 }
-
-/* 自定义 Webkit 浏览器的滚动条（让它变粗且显眼） */
-.gallery-scroll::-webkit-scrollbar {
-  height: 8px;                    /* 高度，也就是粗细 */
-  display: block;                 /* 强制显示 */
-}
-
-/* 滚动条的轨道（底色） */
+.gallery-scroll::-webkit-scrollbar { height: 8px; display: block; }
 .gallery-scroll::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2); border-radius: 10px;
 }
-
-/* 滚动条的滑块（可以用鼠标拖动的部分） */
 .gallery-scroll::-webkit-scrollbar-thumb {
-  background: var(--primary);     /* 使用你的主题蓝色 */
-  border-radius: 10px;
-  cursor: pointer;
+  background: var(--primary); border-radius: 10px; cursor: pointer;
 }
+.gallery-scroll::-webkit-scrollbar-thumb:hover { background: var(--primary-dark); }
 
-.gallery-scroll::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-dark); /* 悬停时颜色加深 */
-}
-
-/* 每个图片的外框 */
 .gallery-item {
-  flex: 0 0 auto;                /* 关键：不压缩、不拉伸，保持原始宽度 */
-  scroll-snap-align: start;      /* 滚动停止时对齐图片左边缘 */
+  flex: 0 0 auto;
+  scroll-snap-align: start;
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: transform 0.3s ease;
 }
-
-.gallery-item:hover {
-  transform: translateY(-4px);   /* 悬停微微上浮 */
-}
-
-/* 图片高度控制 */
+.gallery-item:hover { transform: translateY(-4px); }
 .gallery-item img {
-  height: 240px;                 /* ★★★ 这里就是控制高度的关键 ★★★ */
-  width: auto;                   /* 宽度自适应，保持图片原比例不变形 */
+  height: 240px;
+  width: auto;
   display: block;
   object-fit: cover;
 }
 
-/* ===== 联系方式 ===== */
-.contact-list { display: flex; flex-direction: column; align-items: center; gap: 12px; }
-.contact-item {
-  color: var(--text); text-decoration: none; background: #ffffff;
-  border: 1px solid #e5e7eb; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-  border-radius: var(--radius); padding: 12px 24px; min-width: 320px;
-  text-align: center; transition: border-color 0.2s, color 0.2s, box-shadow 0.2s;
-}
-.contact-item:hover { border-color: var(--primary); color: var(--primary); box-shadow: 0 4px 16px rgba(59, 130, 246, 0.1); }
-
 /* ===== 页脚 ===== */
 .footer { text-align: center; padding: 24px 0; color: var(--text-light); font-size: 14px; border-top: 1px solid #e5e7eb; }
 
-/* ===== 音频播放器 ===== */
+/* ===== 音频播放器（保持不变） ===== */
 .audio-player {
   position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
   z-index: 1000; background: #ffffff; border: 1px solid #e5e7eb;
@@ -277,11 +369,33 @@ main { background-color: #ffffff; position: relative; z-index: 10; }
 }
 .audio-upload-btn:hover { background: #1F5ED9; }
 
+/* ===== 画廊标题独立居中 ===== */
+.section h2.gallery-title {
+  text-align: center;
+  max-width: 720px;      /* 和画廊说明框、滑动区域保持一致的最大宽度 */
+  margin: 0 auto 24px auto; /* 水平居中，并和下方内容留出间距 */
+}
+
 /* ===== 手机端适配 ===== */
+@media (max-width: 700px) {
+  .masonry {
+    grid-template-columns: 1fr;   /* 屏幕过窄时，变成单列 */
+  }
+}
+
 @media (max-width: 600px) {
   .nav-links { gap: 14px; }
   .nav-links a { font-size: 13px; }
-  .greeting { font-size: 24px; }
-  .hero-big-title { letter-spacing: 0.05em; }
-  .contact-item { min-width: 0; width: 100%; }
+  .greeting { font-size: 26px; }
+
+  /* 手机上首屏改为上下排列，右侧微板块占满整行 */
+  .hero-profile {
+    flex-direction: column;
+    padding-top: 40px;
+    gap: 20px;
+  }
+  .profile-right {
+    flex: 1 1 auto;
+    width: 100%;
+  }
 }
