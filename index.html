@@ -6,6 +6,7 @@
   <title>个人主页 - UTOPIO🌌</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
   <!-- 顶部导航 -->
@@ -18,14 +19,16 @@
         <li><a href="#about">关于</a></li>
         <li><a href="#projects">项目</a></li>
         <li><a href="#gallery">画廊</a></li>
+        <li><a href="#Trigger">品鉴</a></li>
       </ul>
+      <!-- 👇 新增：夜间模式切换按钮 -->
+      <button id="theme-toggle" class="theme-toggle" aria-label="切换夜间模式">🌙</button>
     </div>
   </nav>
 
   <!-- 首屏介绍 -->
   <header id="hero" class="hero">
-
-  <!-- 背景图 + 居中欢迎词 -->
+    <!-- 背景图 + 居中欢迎词 -->
     <div class="hero-bg">
       <img class="hero-bg-img" src="background.png" alt="背景" />
       <div class="hero-welcome">
@@ -40,16 +43,15 @@
 
     <!-- 头像 + 简介（左） / 联系 + 反馈（右） -->
     <div class="hero-profile">
-
       <!-- 左侧：头像和自我介绍 -->
       <div class="profile-left">
         <img class="avatar" src="img.png" alt="头像" />
-        <h2 class="name">io</h2>
+        <h2 class="name">io(Yiou WEI)</h2>
         <p class="subtitle">TJU&PolyU · BME · 本科生</p>
         <p class="intro"><em>世界是我的牡蛎，我将以利剑启之。</em></p>
       </div>
 
-      <!-- 右侧：联系和反馈（完全位于白色区域内） -->
+      <!-- 右侧：联系和反馈 -->
       <div class="profile-right">
         <div id="contact" class="mini-card">
           <h3 class="mini-title">📮联系方式 Contact</h3>
@@ -57,58 +59,50 @@
           <a class="contact-item" href="https://github.com/utopio619" target="_blank" rel="noopener">github.com/utopio619</a>
         </div>
 
-    <div id="feedback" class="mini-card">
-      <h3 class="mini-title">✉️反馈 Feedback</h3>
-      <form action="https://api.web3forms.com/submit" method="POST">
-        <!-- 这一行是密钥，value填你Web3Forms拿到的access_key -->
-        <input type="hidden" name="access_key" value="d8b40a50-a52d-4c0c-a691-37d051c98a36">
-        <input type="text" name="name" placeholder="请留下你的名字">
-        <textarea name="message" placeholder="请写下你想说的话..."></textarea>
-        <button type="submit">提交反馈</button>
-      </form>
+        <div id="feedback" class="mini-card">
+          <h3 class="mini-title">✉️反馈 Feedback</h3>
+          <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="d8b40a50-a52d-4c0c-a691-37d051c98a36">
+            <input type="text" name="name" placeholder="请留下你的名字">
+            <textarea name="message" placeholder="请写下你想说的话..."></textarea>
+            <button type="submit">提交反馈</button>
+          </form>
+        </div>
+      </div>
     </div>
-  </div>
-
-    </div>
-
   </header>
 
   <main>
-    <!-- 瀑布流区域：关于我 + 项目 + 新模块 -->
+    <!-- 瀑布流区域 -->
     <section id="about" class="section section-alt">
       <div class="container">
         <div class="masonry">
-
-          <!-- 左侧列：关于我 + 技能 -->
+          <!-- 左侧列 -->
           <div class="masonry-col">
-            <!-- 模块 1：关于我 -->
             <div class="masonry-item">
               <h2 class="masonry-title">🍻关于我 About</h2>
               <div class="about-card">
                 <p>你好，我是io，一名来自深圳的本科生。</p>
-                <p>我喜欢玩游戏和阅读，偶尔摸鱼画画但技术力不高。</p>
+                <p>我喜欢玩游（尤其是音游）和阅读，偶尔摸鱼画画但技术力不高。</p>
                 <p>（也许）你可以约我一起打篮球。</p>
-                <p>从业余爱好者的角度来说，我对化学和天文学也很感兴趣。</p>
+                <p>从业余爱好者的角度来说，我对博物学和天文学也很感兴趣。</p>
                 <p>感兴趣的话请联系我！</p>
               </div>
             </div>
-
-            <!-- 模块 3：技能（现在它会紧紧贴在“关于我”下方） -->
             <div class="masonry-item" id="skills">
               <h2 class="masonry-title">🎈喜好 Fandom</h2>
               <div class="about-card">
                 <p>🎮游戏：塞尔达传说 / Minecraft / Deemo / 重返未来：1999 / 星露谷 / 心跳文学部 / 苏丹的游戏 / 主播女孩重度依赖</p>
                 <p>📓书籍：红楼梦 / 哈利·波特 / 1984 / 蛇结 / 橘子不是唯一的水果</p>
                 <p>📚漫画：Happy Sugar Life / 迷宫饭 / 琉璃龙龙</p>
-                <p>🎬动画&电影：MLP / Ave mujica / 千与千寻 / 哈尔的移动城堡 / BEASTARS / 猫和老鼠</p>
-                <p>🎧音乐人：Mili / Glass animals / 胃弱p / 内緒p</p>
+                <p>🎬动画&电影：MLP / 千与千寻 / 哈尔的移动城堡 / BEASTARS / 猫和老鼠</p>
+                <p>🎧音乐：Mili / Ave mujica / Glass animals / 胃弱p / 内緒p</p>
               </div>
             </div>
           </div>
 
-          <!-- 右侧列：项目 -->
+          <!-- 右侧列 -->
           <div class="masonry-col">
-            <!-- 模块 2：项目 -->
             <div class="masonry-item" id="projects">
               <h2 class="masonry-title">📌项目 Projects</h2>
               <article class="project-card">
@@ -123,62 +117,168 @@
               </article>
             </div>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- 画廊（保留左右滑动） -->
+    <!-- 画廊 -->
     <section id="gallery" class="section section-alt">
       <div class="container">
-        <!-- 改成这样 -->
         <h2 class="gallery-title">💭画廊 Gallery</h2>
-
         <div class="gallery-intro">
-          <p>这里展示了一些我的原创角色（oc）、同人图和游戏截图。</p>
-          <p>如果咱是同好，欢迎联系我！</p>
+          <p>这里展示了一些我铲出的原创角色（oc）和同人图。</p>
+          <p>神秘绿毛女子和神秘红毛男子是我最近在孝的一对bg恨海情天夫妻。</p>
+          <p>神秘灰毛女是我推，而最后的9宫格是实在没图了而端上来的moodboard拼拼乐。</p>
+          <p>如果你对我产品有兴趣，欢迎联系我以一键订阅！我也十分想鉴赏各位的家产！！</p>
         </div>
-
         <div class="gallery-scroll">
-          <div class="gallery-item"><img src="art1.jpeg" alt="板绘作品 1"></div>
-          <div class="gallery-item"><img src="art2.png" alt="板绘作品 2"></div>
-          <div class="gallery-item"><img src="art3.png" alt="游戏截图 1"></div>
-          <div class="gallery-item"><img src="art4.png" alt="板绘作品 3"></div>
-          <div class="gallery-item"><img src="cg1.png" alt="cg1"></div>
-          <div class="gallery-item"><img src="cg2.png" alt="cg2"></div>
+          <div class="gallery-item"><img src="art1.JPG" alt="oc 1"></div>
+          <div class="gallery-item"><img src="art2.JPG" alt="oc 2"></div>
+          <div class="gallery-item"><img src="art3.png" alt="oc 3"></div>
+          <div class="gallery-item"><img src="art5.png" alt="oc 4"></div>
         </div>
+      </div>
+    </section>
 
+    <!-- 品鉴 Trigger -->
+    <section id="Trigger" class="section section-alt">
+      <div class="container">
+        <h2 class="gallery-title">📡品鉴 Trigger</h2>
+        <div class="gallery-intro">
+          <p>*高雅人士品鉴中···</p>
+          <p>不知道放什么了，展示一些我的trigger吧。</p>
+        </div>
+        <div class="gallery-scroll">
+          <div class="gallery-item"><img src="tri.1.png" alt="trigger 1"></div>
+          <div class="gallery-item"><img src="tri.2.png" alt="trigger 2"></div>
+          <div class="gallery-item"><img src="tri.3.png" alt="trigger 3"></div>
+          <div class="gallery-item"><img src="tri.4.png" alt="trigger 4"></div>
+          <div class="gallery-item"><img src="tri.5.png" alt="trigger 5"></div>
+          <div class="gallery-item"><img src="tri.7.PNG" alt="trigger 6"></div>
+        </div>
       </div>
     </section>
   </main>
-
 
   <!-- 页脚 -->
   <footer class="footer">
     <p>© 2026 io · 个人主页</p>
   </footer>
 
-  <!-- 音频播放器（保持不变） -->
+  <!-- 音频播放器 -->
   <div class="audio-player">
     <audio id="bgm-player" controls>
-      <source src="" type="audio/mpeg">
+      <source src="rain.mp3" type="audio/mpeg">
       您的浏览器不支持音频播放。
     </audio>
-    <label for="audio-upload" class="audio-upload-btn">上传音频文件</label>
-    <input type="file" id="audio-upload" accept="audio/*" style="display: none;">
+  </div>
+
+  <!-- ⚠️ 补上缺失的灯箱（大图弹窗）HTML 骨架 -->
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close" id="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="大图">
   </div>
 
   <script>
-    const audioUpload = document.getElementById('audio-upload');
-    const audioPlayer = document.getElementById('bgm-player');
-    audioUpload.addEventListener('change', function(e) {
-      const file = e.target.files[0];
-      if (file) {
-        audioPlayer.src = URL.createObjectURL(file);
-        audioPlayer.play().catch(err => console.log("需手动播放", err));
+    // ===== 灯箱（点击看大图）逻辑 =====
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+    let isAutoScrollPaused = false; // 全局标记：自动滚动是否暂停
+
+    // 关闭灯箱
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+      setTimeout(() => { lightboxImg.src = ''; }, 300);
+      isAutoScrollPaused = false; // 关闭大图，恢复滚动
+    }
+
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox || e.target === lightboxClose) {
+        closeLightbox();
       }
     });
-  </script>
 
+    // ===== 画廊自动滚动播放 & 点击大图逻辑 =====
+    let scrollSpeed = 0.3; // 👈 现在你可以随便改小了，0.1 都没问题！
+
+    document.querySelectorAll('.gallery-scroll').forEach(container => {
+      
+      // 1. 无缝循环：克隆一份画廊内容追加到末尾
+      const originalItems = container.innerHTML;
+      container.innerHTML += originalItems;
+
+      let currentScroll = 0; // 👈 核心：独立的小数累加器
+
+      // 2. 自动滚动核心逻辑
+      function autoScrollGallery() {
+        if (!isAutoScrollPaused) {
+          currentScroll += scrollSpeed; // 累加小数
+          container.scrollLeft = currentScroll; // 将累加后的浮点数赋值给 scrollLeft
+
+          // 滚完第一组（一半）时，瞬间重置
+          if (container.scrollLeft >= container.scrollWidth / 2) {
+            currentScroll = 0;
+            container.scrollLeft = 0;
+          }
+        }
+        requestAnimationFrame(autoScrollGallery);
+      }
+      requestAnimationFrame(autoScrollGallery);
+
+      // 3. 当用户手动滚动（触摸或拖拽）时，将累加器与用户的位置同步
+      container.addEventListener('scroll', () => {
+        if (isAutoScrollPaused) {
+          currentScroll = container.scrollLeft;
+        }
+      });
+
+      // 4. 鼠标移入暂停，移出恢复
+      container.addEventListener('mouseenter', () => isAutoScrollPaused = true);
+      container.addEventListener('mouseleave', () => isAutoScrollPaused = false);
+
+      // 5. 手机触摸时暂停，松手 1.5 秒后恢复
+      container.addEventListener('touchstart', () => isAutoScrollPaused = true, {passive: true});
+      container.addEventListener('touchend', () => {
+        setTimeout(() => { isAutoScrollPaused = false; }, 1500);
+      });
+
+      // 6. 点击图片，打开灯箱看大图
+      container.addEventListener('click', function(e) {
+        if (e.target.tagName === 'IMG') {
+          lightboxImg.src = e.target.src;
+          lightbox.classList.add('active');
+          document.body.style.overflow = 'hidden';
+          isAutoScrollPaused = true; // 看大图时，暂停自动滚动
+        }
+      });
+    });
+    
+    // ===== 🌙 夜间模式切换逻辑 =====
+    const themeToggle = document.getElementById('theme-toggle');
+    
+    // 1. 检查本地存储或系统偏好
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    // 2. 初始化
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.body.classList.add('dark-mode');
+      themeToggle.textContent = '☀️';
+    }
+
+    // 3. 点击切换
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      
+      // 更新按钮图标
+      themeToggle.textContent = isDark ? '☀️' : '🌙';
+      
+      // 保存偏好到本地
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+  </script>
 </body>
 </html>
