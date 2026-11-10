@@ -21,14 +21,12 @@
         <li><a href="#gallery">画廊</a></li>
         <li><a href="#Trigger">品鉴</a></li>
       </ul>
-      <!-- 👇 新增：夜间模式切换按钮 -->
       <button id="theme-toggle" class="theme-toggle" aria-label="切换夜间模式">🌙</button>
     </div>
   </nav>
 
   <!-- 首屏介绍 -->
   <header id="hero" class="hero">
-    <!-- 背景图 + 居中欢迎词 -->
     <div class="hero-bg">
       <img class="hero-bg-img" src="background.png" alt="背景" />
       <div class="hero-welcome">
@@ -41,9 +39,7 @@
       </div>
     </div>
 
-    <!-- 头像 + 简介（左） / 联系 + 反馈（右） -->
     <div class="hero-profile">
-      <!-- 左侧：头像和自我介绍 -->
       <div class="profile-left">
         <img class="avatar" src="img.png" alt="头像" />
         <h2 class="name">io(Yiou WEI)</h2>
@@ -51,7 +47,6 @@
         <p class="intro"><em>世界是我的牡蛎，我将以利剑启之。</em></p>
       </div>
 
-      <!-- 右侧：联系和反馈 -->
       <div class="profile-right">
         <div id="contact" class="mini-card">
           <h3 class="mini-title">📮联系方式 Contact</h3>
@@ -73,17 +68,26 @@
   </header>
 
   <main>
+    <!-- 数字分身聊天区域 -->
+    <section id="chat-section" style="padding: 40px 20px; max-width: 720px; margin: 0 auto;">
+      <h2 style="margin-bottom: 20px;">🤖 问问我的数字分身</h2>
+      <div id="chat-box" style="border: 1px solid #ccc; border-radius: 10px; height: 300px; overflow-y: auto; padding: 15px; margin-bottom: 10px; background: #fff; color: #000;"></div>
+      <div style="display: flex; gap: 10px;">
+        <input id="chat-input" type="text" placeholder="输入你想问的问题..." style="flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 5px; color: #000;">
+        <button id="chat-btn" style="padding: 10px 20px; background: #3b82f6; color: white; border: none; border-radius: 5px; cursor: pointer;">发送</button>
+      </div>
+    </section>
+
     <!-- 瀑布流区域 -->
     <section id="about" class="section section-alt">
       <div class="container">
         <div class="masonry">
-          <!-- 左侧列 -->
           <div class="masonry-col">
             <div class="masonry-item">
               <h2 class="masonry-title">🍻关于我 About</h2>
               <div class="about-card">
                 <p>你好，我是io，一名来自深圳的本科生。</p>
-                <p>我喜欢玩游（尤其是音游）和阅读，偶尔摸鱼画画但技术力不高。</p>
+                <p>我喜欢玩游戏、阅读和画画，但技术力不高。</p>
                 <p>（也许）你可以约我一起打篮球。</p>
                 <p>从业余爱好者的角度来说，我对博物学和天文学也很感兴趣。</p>
                 <p>感兴趣的话请联系我！</p>
@@ -92,16 +96,15 @@
             <div class="masonry-item" id="skills">
               <h2 class="masonry-title">🎈喜好 Fandom</h2>
               <div class="about-card">
-                <p>🎮游戏：塞尔达传说 / Minecraft / Deemo / 重返未来：1999 / 星露谷 / 心跳文学部 / 苏丹的游戏 / 主播女孩重度依赖</p>
-                <p>📓书籍：红楼梦 / 哈利·波特 / 1984 / 蛇结 / 橘子不是唯一的水果</p>
-                <p>📚漫画：Happy Sugar Life / 迷宫饭 / 琉璃龙龙</p>
-                <p>🎬动画&电影：MLP / 千与千寻 / 哈尔的移动城堡 / BEASTARS / 猫和老鼠</p>
-                <p>🎧音乐：Mili / Ave mujica / Glass animals / 胃弱p / 内緒p</p>
+                <p>🎮游戏：塞尔达传说 / Minecraft / 星露谷 / 苏丹的游戏</p>
+                <p>📓书籍：红楼梦 / 哈利·波特 / 1984 / 蛇结 / （最近没有读很多书哈哈哈）</p>
+                <p>📚漫画：Happy Sugar Life / 迷宫饭 / 污秽不堪的你最可爱了</p>
+                <p>🎬动画&电影：哈尔的移动城堡 / 魔法少女小圆 / 猫和老鼠</p>
+                <p>🎧音乐：Mili /  Glass animals / 胃弱p / 内緒p</p>
               </div>
             </div>
           </div>
 
-          <!-- 右侧列 -->
           <div class="masonry-col">
             <div class="masonry-item" id="projects">
               <h2 class="masonry-title">📌项目 Projects</h2>
@@ -127,15 +130,17 @@
         <h2 class="gallery-title">💭画廊 Gallery</h2>
         <div class="gallery-intro">
           <p>这里展示了一些我铲出的原创角色（oc）和同人图。</p>
-          <p>神秘绿毛女子和神秘红毛男子是我最近在孝的一对bg恨海情天夫妻。</p>
-          <p>神秘灰毛女是我推，而最后的9宫格是实在没图了而端上来的moodboard拼拼乐。</p>
+          <p>神秘绿毛女子和神秘红毛男子是我最近在孝的一对bg恨海情天夫妻，和绿毛女子同框的小女孩是他们的女儿。</p>
+          <p>棕色头发小女孩是苯人在期中前激情铲出的小狗妹。</p>7
+          <p>紫色头发的是我自设，绘于19岁生日前夕。而最后的9宫格是实在没图了而端上来的自设moodboard拼拼乐。</p>
           <p>如果你对我产品有兴趣，欢迎联系我以一键订阅！我也十分想鉴赏各位的家产！！</p>
         </div>
         <div class="gallery-scroll">
           <div class="gallery-item"><img src="art1.JPG" alt="oc 1"></div>
           <div class="gallery-item"><img src="art2.JPG" alt="oc 2"></div>
-          <div class="gallery-item"><img src="art3.png" alt="oc 3"></div>
-          <div class="gallery-item"><img src="art5.png" alt="oc 4"></div>
+          <div class="gallery-item"><img src="art3.JPG" alt="oc 3"></div>
+          <div class="gallery-item"><img src="art5.JPG" alt="oc 4"></div>
+          <div class="gallery-item"><img src="art4.png" alt="oc 4"></div>
         </div>
       </div>
     </section>
@@ -160,12 +165,10 @@
     </section>
   </main>
 
-  <!-- 页脚 -->
   <footer class="footer">
     <p>© 2026 io · 个人主页</p>
   </footer>
 
-  <!-- 音频播放器 -->
   <div class="audio-player">
     <audio id="bgm-player" controls>
       <source src="rain.mp3" type="audio/mpeg">
@@ -173,25 +176,23 @@
     </audio>
   </div>
 
-  <!-- ⚠️ 补上缺失的灯箱（大图弹窗）HTML 骨架 -->
   <div id="lightbox" class="lightbox">
     <span class="lightbox-close" id="lightbox-close">&times;</span>
     <img id="lightbox-img" src="" alt="大图">
   </div>
 
   <script>
-    // ===== 灯箱（点击看大图）逻辑 =====
+    // ===== 灯箱逻辑 =====
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxClose = document.getElementById('lightbox-close');
-    let isAutoScrollPaused = false; // 全局标记：自动滚动是否暂停
+    let isAutoScrollPaused = false;
 
-    // 关闭灯箱
     function closeLightbox() {
       lightbox.classList.remove('active');
       document.body.style.overflow = '';
       setTimeout(() => { lightboxImg.src = ''; }, 300);
-      isAutoScrollPaused = false; // 关闭大图，恢复滚动
+      isAutoScrollPaused = false;
     }
 
     lightbox.addEventListener('click', function(e) {
@@ -200,24 +201,17 @@
       }
     });
 
-    // ===== 画廊自动滚动播放 & 点击大图逻辑 =====
-    let scrollSpeed = 0.3; // 👈 现在你可以随便改小了，0.1 都没问题！
-
+    // ===== 画廊自动滚动 =====
+    let scrollSpeed = 0.3;
     document.querySelectorAll('.gallery-scroll').forEach(container => {
-      
-      // 1. 无缝循环：克隆一份画廊内容追加到末尾
       const originalItems = container.innerHTML;
       container.innerHTML += originalItems;
+      let currentScroll = 0;
 
-      let currentScroll = 0; // 👈 核心：独立的小数累加器
-
-      // 2. 自动滚动核心逻辑
       function autoScrollGallery() {
         if (!isAutoScrollPaused) {
-          currentScroll += scrollSpeed; // 累加小数
-          container.scrollLeft = currentScroll; // 将累加后的浮点数赋值给 scrollLeft
-
-          // 滚完第一组（一半）时，瞬间重置
+          currentScroll += scrollSpeed;
+          container.scrollLeft = currentScroll;
           if (container.scrollLeft >= container.scrollWidth / 2) {
             currentScroll = 0;
             container.scrollLeft = 0;
@@ -227,58 +221,118 @@
       }
       requestAnimationFrame(autoScrollGallery);
 
-      // 3. 当用户手动滚动（触摸或拖拽）时，将累加器与用户的位置同步
       container.addEventListener('scroll', () => {
-        if (isAutoScrollPaused) {
-          currentScroll = container.scrollLeft;
-        }
+        if (isAutoScrollPaused) currentScroll = container.scrollLeft;
       });
-
-      // 4. 鼠标移入暂停，移出恢复
       container.addEventListener('mouseenter', () => isAutoScrollPaused = true);
       container.addEventListener('mouseleave', () => isAutoScrollPaused = false);
-
-      // 5. 手机触摸时暂停，松手 1.5 秒后恢复
       container.addEventListener('touchstart', () => isAutoScrollPaused = true, {passive: true});
-      container.addEventListener('touchend', () => {
-        setTimeout(() => { isAutoScrollPaused = false; }, 1500);
-      });
-
-      // 6. 点击图片，打开灯箱看大图
+      container.addEventListener('touchend', () => { setTimeout(() => { isAutoScrollPaused = false; }, 1500); });
       container.addEventListener('click', function(e) {
         if (e.target.tagName === 'IMG') {
           lightboxImg.src = e.target.src;
           lightbox.classList.add('active');
           document.body.style.overflow = 'hidden';
-          isAutoScrollPaused = true; // 看大图时，暂停自动滚动
+          isAutoScrollPaused = true;
         }
       });
     });
     
-    // ===== 🌙 夜间模式切换逻辑 =====
+    // ===== 🌙 夜间模式 =====
     const themeToggle = document.getElementById('theme-toggle');
-    
-    // 1. 检查本地存储或系统偏好
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    // 2. 初始化
     if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
       document.body.classList.add('dark-mode');
       themeToggle.textContent = '☀️';
     }
-
-    // 3. 点击切换
     themeToggle.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
       const isDark = document.body.classList.contains('dark-mode');
-      
-      // 更新按钮图标
       themeToggle.textContent = isDark ? '☀️' : '🌙';
-      
-      // 保存偏好到本地
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
+
+    // ===== 🤖 数字分身聊天逻辑 =====
+    const chatBox = document.getElementById('chat-box');
+    const chatInput = document.getElementById('chat-input');
+    const chatBtn = document.getElementById('chat-btn');
+
+    const messagesHistory = [
+      {
+        role: 'system',
+        content: `你是 io（Yiou WEI）个人主页上的数字分身。
+你的唯一任务是基于下面提供的「个人资料」回答访客的问题。
+规则：
+1. 只回答与 io 相关的问题。与 io 无关的问题（写代码、翻译、通用知识等），礼貌拒绝：“我只回答关于 io 的问题哦。”
+2. 资料里没有的信息，直接说“这个我不太确定，建议直接联系 io”，绝不编造。
+3. 语气自然、简洁、友好，像 io 本人在和访客聊天。
+4. 不要透露你是 AI 或语言模型，你就是 io 的数字分身。
+
+【个人资料】
+- 姓名/称呼：io（Yiou WEI）
+- 身份：TJU（天津大学）& PolyU（香港理工大学）联合培养，BME（生物医学工程）本科生，来自深圳。
+- 性格/偏好：喜欢玩游戏、阅读和画画（自谦技术力不高），可以约打篮球。对博物学和天文学也很感兴趣。
+- 游戏：塞尔达传说 / Minecraft / 星露谷 / 苏丹的游戏
+- 书籍：红楼梦 / 哈利·波特 / 1984 / 蛇结（最近没有读很多书哈哈哈）
+- 漫画：Happy Sugar Life / 迷宫饭 / 污秽不堪的你最可爱了
+- 动画&电影：哈尔的移动城堡 / 魔法少女小圆 / 猫和老鼠
+- 音乐：Mili / Glass animals / 胃弱p / 内緒p
+- 项目：个人主页（HTML/CSS，由 Trae agent 协助）；桌面宠物（Python，可拖动）
+- 联系方式：邮箱 1990744176@qq.com；GitHub github.com/utopio619
+- 画廊：展示了原创角色（oc）和同人图。其中包含：
+  1. 神秘绿毛女子和神秘红毛男子（一对bg恨海情天夫妻），和绿毛女子同框的小女孩是他们的女儿。
+  2. 棕色头发小女孩是苯人在期中前激情铲出的小狗妹。
+  3. 紫色头发的是我的自设，绘于19岁生日前夕。
+  4. 最后的9宫格是自设moodboard拼拼乐。
+- 品鉴 Trigger：展示一些trigger图。
+`
+      }
+    ];
+
+    async function sendMessage() {
+      const text = chatInput.value.trim();
+      if (!text) return;
+
+      chatBox.innerHTML += `<div style="margin-bottom: 10px; text-align: right;"><b>你：</b>${text}</div>`;
+      chatInput.value = '';
+      messagesHistory.push({ role: 'user', content: text });
+
+      const loadingId = 'loading-' + Date.now();
+      chatBox.innerHTML += `<div id="${loadingId}" style="margin-bottom: 10px;"><b>io：</b>正在思考...</div>`;
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+      try {
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages: messagesHistory })
+        });
+        
+        // 把后端返回的数据解析出来
+        const data = await res.json();
+        
+        // 打印到控制台，方便你按F12看
+        console.log("服务器返回的具体数据：", data);
+
+        // 判断是否有 reply 字段，有就正常显示，没有就把错误显示出来
+        if (data.reply) {
+          document.getElementById(loadingId).innerHTML = `<b>io：</b>${data.reply}`;
+          messagesHistory.push({ role: 'assistant', content: data.reply });
+        } else {
+          // 这里会把后端隐藏的错误直接显示在网页上！
+          document.getElementById(loadingId).innerHTML = `<b>io：</b>❌ 报错了：${data.error || JSON.stringify(data)}`;
+        }
+
+      } catch (err) {
+        console.error("前端请求彻底失败：", err);
+        document.getElementById(loadingId).innerHTML = `<b>io：</b>网络出错啦，连不上本地服务器。`;
+      }
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    chatBtn.addEventListener('click', sendMessage);
+    chatInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') sendMessage(); });
   </script>
 </body>
 </html>
